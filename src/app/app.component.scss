@@ -1,0 +1,12 @@
+.appContent {
+  margin: 82px auto 0;
+  padding: 0 16px;
+  a {
+    margin: 0 10px;
+    &:not(:last-child) {
+      &::after {
+        content: "-";
+      }
+    }
+  }
+}
