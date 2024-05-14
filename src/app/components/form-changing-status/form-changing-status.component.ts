@@ -163,8 +163,7 @@ export class FormChangingStatusComponent {
     return this.myGroup.controls['firstHobbies'] as FormArray;
   }
 
-  // form Changing Status function
-
+  //#region form Changing Status function
   markAsTouched() {
     this.myGroup.markAsTouched();
     this.myGroup.controls['firstName'].markAsTouched();
@@ -194,4 +193,6 @@ export class FormChangingStatusComponent {
   enable() {
     this.myGroup.controls['firstName'].enable();
   }
+
+  //#endregion
 }
