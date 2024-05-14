@@ -56,7 +56,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ReactiveFormsComponent {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder, private chb: ChangeDetectorRef) {
+  constructor(private fb: FormBuilder) {
     this.form = fb.group({
       name: ['', Validators.required],
       surname: [''],
@@ -70,16 +70,16 @@ export class ReactiveFormsComponent {
       skills: fb.array([this.fb.control('')]),
       hobbies: fb.array([]),
     });
+    this.addHobbies();
   }
-  fg!: FormGroup;
+
   addHobbies() {
-    this.fg = this.fb.group({
+    const fg = this.fb.group({
       hobbi: [''],
       degree: [''],
     });
 
-    this.faHobbies.push(this.fg);
-    this.chb.detectChanges();
+    this.faHobbies.push(fg);
   }
 
   removeHobi(i: number) {

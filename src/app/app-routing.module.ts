@@ -23,6 +23,13 @@ const routes: Routes = [
         (x) => x.ModulDrivenFormsModule
       ),
   },
+  {
+    path: 'changeStatus',
+    loadChildren: () =>
+      import(
+        './components/form-changing-status/form-changing-status.module'
+      ).then((x) => x.FormChangingStatusModule),
+  },
 ];
 
 @NgModule({
