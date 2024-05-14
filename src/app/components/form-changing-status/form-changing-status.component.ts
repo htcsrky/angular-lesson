@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-changing-status',
@@ -33,7 +33,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
           >
             Remove Skill
           </button>
-          <button (click)="addSkills()">Add Skills</button>
+          <button (click)="addSkills(inputSkills.value )">Add Skills</button>
         </div>
       </div>
       <div
@@ -128,7 +128,7 @@ export class FormChangingStatusComponent {
       lastName: [''],
       firstPhone: [''],
       firstEmail: [''],
-      firstSkills: this.FormBuilder.array([this.FormBuilder.control('')]),
+      firstSkills: this.FormBuilder.array([new FormControl('')]),
       firstHobbies: this.FormBuilder.array([]),
     });
     this.getHobbies();
@@ -148,8 +148,8 @@ export class FormChangingStatusComponent {
   removeHobbi(i: number) {
     this.FaHobbies.removeAt(i);
   }
-  addSkills() {
-    this.FaSkills.push(this.FormBuilder.control(''));
+  addSkills(e:string) {
+    this.FaSkills.push(new FormControl(e));
   }
   removeSkill(i: number) {
     this.FaSkills.removeAt(i);
