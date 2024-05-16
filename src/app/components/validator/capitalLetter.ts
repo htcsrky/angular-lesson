@@ -1,11 +1,25 @@
-import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-export function capitalLetterValidators(): ValidatorFn {
+export function capitalLetterValidators(
+  control: AbstractControl
+): ValidationErrors | null {
+  const value = control.value as string;
+  if (value[0] != value[0]?.toUpperCase()) {
+    return {
+      capitalLetter: true,
+    };
+  }
+
+  return null;
+}
+
+export function maxPasswordCount(count: number): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
-    const value = control.value as string;
-    if (value[0] != value[0]?.toUpperCase()) {
+    const value = control.value;
+
+    if (value.length != count) {
       return {
-        capitalLetter: true,
+        passwordCount: true,
       };
     }
 

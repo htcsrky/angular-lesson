@@ -6,7 +6,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { capitalLetterValidators } from '../validator/capitalLetter';
+import {
+  capitalLetterValidators,
+  maxPasswordCount,
+} from '../validator/capitalLetter';
 
 @Component({
   selector: 'app-validation-component',
@@ -20,9 +23,9 @@ import { capitalLetterValidators } from '../validator/capitalLetter';
         [appValidator]="validatorsForm.controls['name']"
         [submitted]="submitted"
       />
-      <div *ngIf="!fcName.valid && (fcName.dirty || fcName.touched)">
+      <span *ngIf="!fcName.valid && (fcName.dirty || fcName.touched)">
         {{ fcName.errors | json }}
-      </div>
+      </span>
       <input
         type="text"
         placeholder="surname"
@@ -62,6 +65,13 @@ import { capitalLetterValidators } from '../validator/capitalLetter';
           <button (click)="addSkills(input.value)">Add Skill</button>
         </div>
       </div>
+      <input
+        type="password"
+        placeholder="password"
+        formControlName="password"
+        [appValidator]="validatorsForm.controls['password']"
+        [submitted]="submitted"
+      />
 
       <button>At The Form Send</button>
     </form>
@@ -97,11 +107,11 @@ export class ValidationComponent {
 
   createForm() {
     this.validatorsForm = this.fBuilder.group({
-      name: ['', [Validators.required, capitalLetterValidators()]],
+      name: ['', [Validators.required, capitalLetterValidators]],
       surname: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', Validators.required],
       phone: [''],
-      pasword: [''],
+      password: ['', [maxPasswordCount(6)]],
       address: this.fBuilder.group({
         country: [''],
         city: [''],

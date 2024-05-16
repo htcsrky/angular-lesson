@@ -82,12 +82,10 @@ export class ValidatorDirective implements OnInit, OnChanges {
           errors['pattern'].actualValue;
       } else if (errors != null && errors['email']) {
         btnText = `Doğru email yazdığınızdan emin olun`;
-      } else if (errors != null && errors['mask']) {
-        btnText = `Belirtilen biçimde giriş yapmanız gerekmektedir`;
-      } else if (errors != null && errors['mismatch']) {
-        btnText = `Girdiğiniz şifreler birbiri ile eşleşmemiştir`;
       } else if (errors != null && errors['capitalLetter']) {
         btnText = `İlk Harf Büyük Olmalı!!!`;
+      } else if (errors != null && errors['passwordCount']) {
+        btnText = `Lütfen Şifreniz en az 6 karakter olsun`;
       } else {
         btnText = `Bilinmeyen bir nedenden dolayı doğrulamaya takıldınız.`;
       }
