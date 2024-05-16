@@ -65,9 +65,8 @@ export class ValidatorDirective implements OnInit, OnChanges {
 
       let btnText = '';
       const errors = this.fc.errors;
-      console.log(errors);
       if (errors != null && errors['required']) {
-        btnText = `Bu alanı boş bırakamazsınız`;
+        btnText = `Zorunlu alanları boş bırakamazsınız`;
       } else if (errors != null && errors['min']) {
         btnText = `Girmeniz gereken minumum değerin altında değer girdiniz`;
       } else if (errors != null && errors['max']) {
@@ -84,8 +83,13 @@ export class ValidatorDirective implements OnInit, OnChanges {
         btnText = `Doğru email yazdığınızdan emin olun`;
       } else if (errors != null && errors['capitalLetter']) {
         btnText = `İlk Harf Büyük Olmalı!!!`;
-      } else if (errors != null && errors['passwordCount']) {
-        btnText = `Lütfen Şifreniz en az 6 karakter olsun`;
+      } else if (
+        errors != null &&
+        errors['passwordCount' || errors['passwordStrength']]
+      ) {
+        btnText = `Lütfen Şifreniz 6 karakter olmalı ve Şifre aşağıdakilerden en az ikisini içermelidir: sayılar, küçük harfler, büyük harfler veya özel karakterler.`;
+      } else if (errors != null && errors['notEquivalent']) {
+        btnText = `İki şifreniz aynı olmalıdır.`;
       } else {
         btnText = `Bilinmeyen bir nedenden dolayı doğrulamaya takıldınız.`;
       }

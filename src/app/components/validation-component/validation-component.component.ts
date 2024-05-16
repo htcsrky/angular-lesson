@@ -7,9 +7,11 @@ import {
   Validators,
 } from '@angular/forms';
 import {
+  PasswordStrengthValidator,
   capitalLetterValidators,
+  matchPassword,
   maxPasswordCount,
-} from '../validator/capitalLetter';
+} from '../validator/customValidator';
 
 @Component({
   selector: 'app-validation-component',
@@ -65,13 +67,22 @@ import {
           <button (click)="addSkills(input.value)">Add Skill</button>
         </div>
       </div>
-      <input
-        type="password"
-        placeholder="password"
-        formControlName="password"
-        [appValidator]="validatorsForm.controls['password']"
-        [submitted]="submitted"
-      />
+      <div formGroupName="password">
+        <input
+          type="password"
+          placeholder="firstPassword"
+          formControlName="firstPassword"
+          [appValidator]="fgPassword.controls['firstPassword']"
+          [submitted]="submitted"
+        />
+        <input
+          type="password"
+          placeholder="confirmPassword"
+          formControlName="confirmPassword"
+          [appValidator]="fgPassword.controls['confirmPassword']"
+          [submitted]="submitted"
+        />
+      </div>
 
       <button>At The Form Send</button>
     </form>
@@ -103,6 +114,7 @@ export class ValidationComponent {
 
   constructor(private fBuilder: FormBuilder) {
     this.createForm();
+    console.log(this.validatorsForm)
   }
 
   createForm() {
@@ -111,7 +123,14 @@ export class ValidationComponent {
       surname: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', Validators.required],
       phone: [''],
-      password: ['', [maxPasswordCount(6)]],
+      password: this.fBuilder.group(
+        {
+          firstPassword: [null, Validators.required],
+          confirmPassword: [null, Validators.required],
+        },
+        { validator: matchPassword('firstPassword', 'confirmPassword') }
+      ),
+
       address: this.fBuilder.group({
         country: [''],
         city: [''],
@@ -131,9 +150,7 @@ export class ValidationComponent {
 
   submit() {
     this.submitted = true;
-    console.log(this.validatorsForm.value);
-    console.log('form valid', this.validatorsForm.valid);
-    console.log(this.submitted);
+    console.log('fgPassword.errors', this.fgPassword);
   }
 
   public get faSkills(): FormArray {
@@ -142,5 +159,17 @@ export class ValidationComponent {
 
   public get fcName(): FormControl {
     return this.validatorsForm.controls['name'] as FormControl;
+  }
+
+  public get fgPassword(): FormGroup {
+    return this.validatorsForm.controls['password'] as FormGroup;
+  }
+
+  public get fcFirstPassword(): FormControl {
+    return this.fgPassword.controls['firstPassword'] as FormControl;
+  }
+
+  public get fcConfirmPassword(): FormControl {
+    return this.fgPassword.controls['confirmPassword'] as FormControl;
   }
 }
