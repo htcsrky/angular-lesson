@@ -30,6 +30,13 @@ const routes: Routes = [
         './components/form-changing-status/form-changing-status.module'
       ).then((x) => x.FormChangingStatusModule),
   },
+  {
+    path: 'validators',
+    loadChildren: () =>
+      import(
+        './components/validation-component/validation-component.modul'
+      ).then((x) => x.ValidationComponentModule),
+  },
 ];
 
 @NgModule({

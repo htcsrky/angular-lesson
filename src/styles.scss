@@ -60,7 +60,7 @@ p {
 
 .content {
   display: flex;
-  margin: 32px auto ;
+  margin: 32px auto;
   padding: 0 16px;
   max-width: 960px;
   flex-direction: column;
@@ -262,6 +262,19 @@ svg#clouds {
   left: -230px;
   z-index: -10;
   width: 1920px;
+}
+.is-invalid {
+  border-color: rgba(red, 0.5);
+}
+.invalid-feedback {
+  display: none;
+  width: 100%;
+  margin-top: 4px;
+  font-size: 0.875rem;
+  color: red;
+}
+.is-invalid ~ .invalid-feedback {
+  display: block;
 }
 
 /* Responsive Styles */
