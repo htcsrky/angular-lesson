@@ -37,6 +37,13 @@ const routes: Routes = [
         './components/validation-component/validation-component.modul'
       ).then((x) => x.ValidationComponentModule),
   },
+  {
+    path: 'dependency',
+    loadChildren: () =>
+      import('./components/dependecy/dependecy.module').then(
+        (x) => x.DependencyModule
+      ),
+  },
 ];
 
 @NgModule({
