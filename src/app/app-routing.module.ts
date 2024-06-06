@@ -44,6 +44,13 @@ const routes: Routes = [
         (x) => x.DependencyModule
       ),
   },
+  {
+    path: 'DIdec',
+    loadChildren: () =>
+      import('./components/DI-decorators/DI-decorators.module').then(
+        (x) => x.DIDecoratorsModule
+      ),
+  },
 ];
 
 @NgModule({
