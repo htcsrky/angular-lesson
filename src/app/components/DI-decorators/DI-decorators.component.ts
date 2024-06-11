@@ -1,7 +1,5 @@
 import { Component, Inject, Optional, Self } from '@angular/core';
-import { ProductService } from 'src/app/productService';
-import { productServiceIT } from '../injection-token';
-import { RandomService } from 'src/app/random.service';
+import { RandomService } from 'src/app/service/random.service';
 
 @Component({
   selector: 'app-DI-decorators',

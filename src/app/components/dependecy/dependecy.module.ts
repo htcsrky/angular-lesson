@@ -3,7 +3,7 @@ import { DependencyRouting } from './dependecy.routing';
 import { DependecyComponent } from './dependecy.component';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ProductService } from 'src/app/productService';
+import { ProductService } from 'src/app/service/productService';
 
 @NgModule({
   declarations: [DependecyComponent],

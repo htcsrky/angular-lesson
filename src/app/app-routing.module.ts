@@ -51,6 +51,11 @@ const routes: Routes = [
         (x) => x.DIDecoratorsModule
       ),
   },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./components/user/user.module').then((x) => x.UserModule),
+  },
 ];
 
 @NgModule({

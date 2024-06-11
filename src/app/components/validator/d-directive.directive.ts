@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Self, SkipSelf } from '@angular/core';
-import { RandomService } from 'src/app/random.service';
+import { RandomService } from 'src/app/service/random.service';
 
 @Directive({
   selector: '[appD]',

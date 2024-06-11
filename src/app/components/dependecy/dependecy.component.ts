@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { ProductService } from 'src/app/productService';
 import { productServiceIT } from '../injection-token';
+import { ProductService } from 'src/app/service/productService';
 
 @Component({
   selector: 'app-dependecy',

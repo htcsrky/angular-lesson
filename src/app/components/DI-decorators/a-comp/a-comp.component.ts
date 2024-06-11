@@ -1,5 +1,6 @@
 import { Component, Self } from '@angular/core';
-import { RandomService } from 'src/app/random.service';
+import { RandomService } from 'src/app/service/random.service';
+
 
 @Component({
   selector: 'app-a-comp',
