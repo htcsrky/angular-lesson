@@ -3,9 +3,15 @@ import { RandomService } from 'src/app/service/random.service';
 
 @Component({
   selector: 'app-DI-decorators',
-  template: `<h3>DI Decorators => {{ randomService?.random }}</h3>
-    <app-a-comp />`,
-  styles: [``],
+  template: ` <div class="content" role="main">
+    <h3>DI Decorators => {{ randomService?.random }}</h3>
+    <app-a-comp />
+  </div>`,
+  styles: [`
+  .content{
+    align-items: flex-start; 
+  }
+  `],
   providers: [],
 })
 export class DIDecoratorsComponent {

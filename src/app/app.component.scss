@@ -1,12 +1,22 @@
-.appContent {
-  margin: 82px auto 0;
-  padding: 0 16px;
-  a {
-    margin: 0 10px;
-    &:not(:last-child) {
-      &::after {
-        content: "-";
-      }
+section {
+  display: flex;
+  .appContent {
+    margin: 82px 20px 0;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 35%;
+    a {
+      margin: 10px 0;
+      // &:not(:last-child) {
+      //   &::after {
+      //     content: "-";
+      //   }
+      // }
     }
+  }
+  span {
+    margin: 59px 0;
+    flex: 0 0 65%;
   }
 }

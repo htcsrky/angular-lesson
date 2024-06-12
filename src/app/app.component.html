@@ -62,22 +62,25 @@
     </svg>
   </a>
 </div>
-
-<div class="appContent" role="main">
-  <a href="javascript:void(0)" routerLink="InputOutPut"> @Input - @OutPut </a>
-  <a href="javascript:void(0)" routerLink="templateForms">
-    Template-Driven-Forms
-  </a>
-  <a href="javascript:void(0)" routerLink="reactiveForm">
-    Modul-Driven-Forms(reactive Forms)
-  </a>
-  <a href="javascript:void(0)" routerLink="changeStatus">
-    Form Changing Status
-  </a>
-  <a href="javascript:void(0)" routerLink="validators"> Validators </a>
-  <a href="javascript:void(0)" routerLink="dependency"> Dependency </a>
-  <a href="javascript:void(0)" routerLink="DIdec"> DI Decorators </a>
-  <a href="javascript:void(0)" routerLink="user"> Services </a>
-</div>
-
-<router-outlet></router-outlet>
+<section>
+  <div class="appContent" role="main">
+    <a href="javascript:void(0)" routerLink="InputOutPut"> @Input - @OutPut </a>
+    <a href="javascript:void(0)" routerLink="templateForms">
+      Template-Driven-Forms
+    </a>
+    <a href="javascript:void(0)" routerLink="reactiveForm">
+      Modul-Driven-Forms(reactive Forms)
+    </a>
+    <a href="javascript:void(0)" routerLink="changeStatus">
+      Form Changing Status
+    </a>
+    <a href="javascript:void(0)" routerLink="validators"> Validators </a>
+    <a href="javascript:void(0)" routerLink="dependency"> Dependency </a>
+    <a href="javascript:void(0)" routerLink="DIdec"> DI Decorators </a>
+    <a href="javascript:void(0)" routerLink="user"> Services </a>
+    <a href="javascript:void(0)" routerLink="routing"> Router Example </a>
+  </div>
+  <span>
+    <router-outlet></router-outlet>
+  </span>
+</section>

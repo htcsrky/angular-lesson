@@ -56,6 +56,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./components/user/user.module').then((x) => x.UserModule),
   },
+  {
+    path: 'routing',
+    loadChildren: () =>
+      import('./components/routerExample/routerExample.module').then(
+        (x) => x.RouterExampleModule
+      ),
+  },
 ];
 
 @NgModule({

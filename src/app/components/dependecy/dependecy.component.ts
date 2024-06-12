@@ -4,7 +4,8 @@ import { ProductService } from 'src/app/service/productService';
 
 @Component({
   selector: 'app-dependecy',
-  template: `<table>
+  template: `<div class="content" role="main">
+    <table>
       <thead>
         <tr>
           <th>Kitap Adı</th>
@@ -21,7 +22,8 @@ import { ProductService } from 'src/app/service/productService';
       </tbody>
     </table>
     <button (click)="click()">useValue example Click</button>
-    <button (click)="clickUseFactory()">useFactory example Click</button> `,
+    <button (click)="clickUseFactory()">useFactory example Click</button>
+  </div> `,
   styles: [
     `
       table {
