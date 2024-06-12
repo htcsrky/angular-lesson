@@ -5,10 +5,25 @@ import { ProductService } from 'src/app/service/productService';
 @Component({
   selector: 'app-routerExample',
   template: `<div class="content" role="main">
-    <a href="javascript:void(0)" routerLink="home"> Home </a>
-    <a href="javascript:void(0)" routerLink="abouth"> Abouth </a>
-    <a href="javascript:void(0)" routerLink="contact"> Contact </a>
-  </div> `,
+      <a href="javascript:void(0)" routerLinkActive="active" routerLink="home">
+        Home
+      </a>
+      <a
+        href="javascript:void(0)"
+        routerLinkActive="active"
+        routerLink="abouth"
+      >
+        Abouth
+      </a>
+      <a
+        href="javascript:void(0)"
+        routerLinkActive="active"
+        routerLink="contact"
+      >
+        Contact
+      </a>
+    </div>
+    <router-outlet></router-outlet> `,
   styles: [
     `
       .content {
@@ -22,6 +37,9 @@ import { ProductService } from 'src/app/service/productService';
         margin: 0 19px;
         border-radius: 10px;
         cursor: pointer;
+      }
+      .active {
+        background-color: blue;
       }
     `,
   ],

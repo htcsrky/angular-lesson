@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RouterExampleComponent } from './components/routerExample/routerExample.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,7 @@ const routes: Routes = [
       import('./components/routerExample/routerExample.module').then(
         (x) => x.RouterExampleModule
       ),
+    component: RouterExampleComponent,
   },
 ];
 

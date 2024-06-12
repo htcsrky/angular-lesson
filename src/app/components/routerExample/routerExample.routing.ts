@@ -8,24 +8,24 @@ import { AbouthComponent } from './abouth/abouth.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'routing',
-    pathMatch: 'full',
-  },
-  {
-    path: 'routing',
-    component: RouterExampleComponent,
-  },
-  {
-    path: 'routing/home',
-    component: HomeComponent,
-  },
-  {
-    path: 'routing/contact',
-    component: ContactComponent,
-  },
-  {
-    path: 'routing/abouth',
-    component: AbouthComponent,
+    children: [
+      {
+        path: 'routing',
+        component: RouterExampleComponent,
+      },
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
+      },
+      {
+        path: 'abouth',
+        component: AbouthComponent,
+      },
+    ],
   },
 ];
 
