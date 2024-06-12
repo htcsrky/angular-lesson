@@ -22,6 +22,13 @@ import { ProductService } from 'src/app/service/productService';
       >
         Contact
       </a>
+      <a
+        href="javascript:void(0)"
+        routerLinkActive="active"
+        routerLink="queryString"
+      >
+        Query String
+      </a>
     </div>
     <router-outlet></router-outlet> `,
   styles: [

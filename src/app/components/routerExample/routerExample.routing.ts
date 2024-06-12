@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AbouthComponent } from './abouth/abouth.component';
 import { ErrorComponent } from './error/error.component';
+import { QueryStringComponent } from './query-string/query-string.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: 'abouth',
         component: AbouthComponent,
+      },
+      {
+        path: 'queryString',
+        component: QueryStringComponent,
       },
       {
         path: '**',
